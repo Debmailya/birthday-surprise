@@ -1,60 +1,174 @@
-import './style.css'
-import javascriptLogo from './assets/javascript.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import { setupCounter } from './counter.js'
+import "./css/style.css";
+import "./css/animations.css";
+import "./css/responsive.css";
 
-document.querySelector('#app').innerHTML = `
-<section id="center">
-  <div class="hero">
-    <img src="${heroImg}" class="base" width="170" height="179">
-    <img src="${javascriptLogo}" class="framework" alt="JavaScript logo"/>
-    <img src="${viteLogo}" class="vite" alt="Vite logo" />
-  </div>
-  <div>
-    <h1>Get started</h1>
-    <p>Edit <code>src/main.js</code> and save to test <code>HMR</code></p>
-  </div>
-  <button id="counter" type="button" class="counter"></button>
+import { initGift } from "./js/gift.js";
+import { createBalloons } from "./js/balloons.js";
+import { createLoveBubbles } from "./js/bubbles.js";
+import { initCake } from "./js/cake.js";
+import { initCandle } from "./js/candle.js";
+import { initGallery } from "./js/gallery.js";
+import { initMusic } from "./js/music.js";
+
+document.querySelector("#app").innerHTML = `
+<div id="loadingScreen">
+
+    <div class="loader">
+
+        <h1>🎉 Happy Birthday 🎉</h1>
+
+        <p>Preparing your surprise...</p>
+
+        <div class="spinner"></div>
+
+    </div>
+
+</div>
+
+
+<div id="mainPage" class="hidden">
+
+    <div id="background"></div>
+
+    <div id="balloon-container"></div>
+
+    <div id="bubble-container"></div>
+
+    <section class="hero">
+
+        <h1 class="title">
+           ❤️ Happy Birthday ❤️
+        </h1>
+
+        <h2>
+           ❤️MUNNU❤️
+           </h2>
+
+           <h3>
+           ❤️most important person to me ❤️
+           </h3>
+
+        <p class="subtitle">
+            Today is all about YOU ✨
+        </p>
+
+        <button id="startBtn">
+            Start Surprise 🎁
+        </button>
+
+    </section>
+
+</div>
+
+
+<div id="giftSection" class="hidden">
+
+    <div class="gift-wrapper">
+
+        <div id="giftBox">
+
+            🎁
+
+        </div>
+
+        <button id="openGift">
+            Open Gift
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<div id="birthdaySection" class="hidden">
+
+    <div class="birthday-content">
+
+        <h1>
+            🎂 Happy Birthday 🎂
+        </h1>
+
+        <h2>
+            Wishing you Happiness, Love & Success ❤️
+        </h2>
+
+        <div id="cakeArea"></div>
+
+        <button id="blowBtn">
+            Blow Candle 💨
+        </button>
+
+        <div id="gallery"></div>
+       <section class="gallery-section">
+
+    <h2 class="gallery-title">📸 Our Beautiful Memories ❤️</h2>
+
+    <div class="phone-frame">
+
+        <div class="phone-notch"></div>
+
+        <img
+            id="galleryImage"
+            src="/images/photo1.jpeg"
+            alt="Memory">
+
+    </div>
+
 </section>
+    </div>
 
-<div class="ticks"></div>
+</div>
 
-<section id="next-steps">
-  <div id="docs">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#documentation-icon"></use></svg>
-    <h2>Documentation</h2>
-    <p>Your questions, answered</p>
-    <ul>
-      <li>
-        <a href="https://vite.dev/" target="_blank">
-          <img class="logo" src="${viteLogo}" alt="" />
-          Explore Vite
-        </a>
-      </li>
-      <li>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-          <img class="button-icon" src="${javascriptLogo}" alt="">
-          Learn more
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div id="social">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#social-icon"></use></svg>
-    <h2>Connect with us</h2>
-    <p>Join the Vite community</p>
-    <ul>
-      <li><a href="https://github.com/vitejs/vite" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>GitHub</a></li>
-      <li><a href="https://chat.vite.dev/" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>Discord</a></li>
-      <li><a href="https://x.com/vite_js" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>X.com</a></li>
-      <li><a href="https://bsky.app/profile/vite.dev" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>Bluesky</a></li>
-    </ul>
-  </div>
-</section>
 
-<div class="ticks"></div>
-<section id="spacer"></section>
-`
+ <audio id="birthdayMusic" loop>
 
-setupCounter(document.querySelector('#counter'))
+    <source
+        src="/music/birthday.mp3"
+        type="audio/mpeg">
+
+</audio>
+`;
+
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        document
+            .getElementById("loadingScreen")
+            .classList.add("hidden");
+
+        document
+            .getElementById("mainPage")
+            .classList.remove("hidden");
+
+    }, 2500);
+
+});
+
+
+
+const startBtn = document.getElementById("startBtn");
+
+startBtn.addEventListener("click", () => {
+
+    document
+        .getElementById("mainPage")
+        .classList.add("hidden");
+
+    document
+        .getElementById("giftSection")
+        .classList.remove("hidden");
+
+});
+
+
+
+initGift();
+createBalloons();
+createLoveBubbles();
+initCake();
+initCandle();
+initGallery();
+initMusic();

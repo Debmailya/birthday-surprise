@@ -1,0 +1,550 @@
+/* ==========================================
+   LOADER
+========================================== */
+
+.spinner{
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* ==========================================
+   FADE
+========================================== */
+
+.fadeIn{
+    animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ==========================================
+   FLOATING TITLE
+========================================== */
+
+.title{
+    animation:titleFloat 3s ease-in-out infinite;
+}
+
+@keyframes titleFloat{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================================
+   START BUTTON
+========================================== */
+
+button{
+
+    animation:pulse 2s infinite;
+
+}
+
+button:hover{
+
+    transform:scale(1.08);
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        box-shadow:0 0 0 rgba(255,77,166,.7);
+
+    }
+
+    50%{
+
+        box-shadow:0 0 30px rgba(255,77,166,.8);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 0 rgba(255,77,166,.7);
+
+    }
+
+}
+
+/* ==========================================
+   GIFT
+========================================== */
+
+#giftBox{
+
+    animation:giftFloat 2.5s ease-in-out infinite;
+
+    transition:.5s;
+
+}
+
+#giftBox:hover{
+
+    transform:scale(1.08) rotate(-5deg);
+
+}
+
+.openGift{
+
+    animation:giftOpen 1s forwards;
+
+}
+
+@keyframes giftFloat{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes giftOpen{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    40%{
+
+        transform:scale(1.25);
+
+    }
+
+    100%{
+
+        transform:scale(0);
+
+        opacity:0;
+
+    }
+
+}
+
+/* ==========================================
+   BALLOONS
+========================================== */
+
+.balloon{
+
+    animation:balloonRise linear infinite;
+
+}
+
+@keyframes balloonRise{
+
+    0%{
+
+        transform:
+        translateY(100vh)
+        rotate(0deg);
+
+    }
+
+    100%{
+
+        transform:
+        translateY(-120vh)
+        rotate(360deg);
+
+    }
+
+}
+
+.balloon{
+
+    position:fixed;
+
+    bottom:-120px;
+
+    pointer-events:none;
+
+    user-select:none;
+
+    z-index:2;
+
+    animation-name:balloonRise;
+
+    animation-timing-function:linear;
+
+    animation-iteration-count:infinite;
+
+}
+
+@keyframes balloonRise{
+
+    0%{
+
+        transform:
+        translateY(0)
+        rotate(0deg);
+
+    }
+
+    100%{
+
+        transform:
+        translateY(-130vh)
+        rotate(360deg);
+
+    }
+
+}
+
+/* ==========================================
+   LOVE HEARTS
+========================================== */
+
+.heart{
+
+    animation:heartFloat 7s linear infinite;
+
+}
+
+@keyframes heartFloat{
+
+    0%{
+
+        transform:
+        translateY(0)
+        scale(.6);
+
+        opacity:0;
+
+    }
+
+    25%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:
+        translateY(-120vh)
+        scale(1.4);
+
+        opacity:0;
+
+    }
+
+}
+/* ===============================
+   LOVE BUBBLES
+================================ */
+
+.heart{
+
+    position:fixed;
+
+    pointer-events:none;
+
+    user-select:none;
+
+    z-index:1;
+
+    animation-name:heartFloat;
+
+    animation-timing-function:linear;
+
+    animation-iteration-count:infinite;
+
+}
+
+@keyframes heartFloat{
+
+    0%{
+
+        transform:
+        translateY(0)
+        scale(.5)
+        rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:1;
+
+    }
+
+    80%{
+
+        opacity:.8;
+
+    }
+
+    100%{
+
+        transform:
+        translateY(-130vh)
+        scale(1.3)
+        rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+/* ==========================================
+   CAKE
+========================================== */
+
+#cakeArea{
+
+    animation:cakeFloat 3s ease-in-out infinite;
+
+}
+
+@keyframes cakeFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+/* ===========================
+   CAKE FLOAT
+=========================== */
+
+.cake{
+
+    animation:cakeFloat 3s ease-in-out infinite;
+
+}
+
+@keyframes cakeFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================
+   FLAME
+=========================== */
+
+.flame{
+
+    animation:flicker .15s infinite alternate;
+
+}
+
+@keyframes flicker{
+
+    from{
+
+        transform:
+        translateX(-50%)
+        rotate(-45deg)
+        scale(1);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:
+        translateX(-50%)
+        rotate(-45deg)
+        scale(1.2);
+
+        opacity:.8;
+
+    }
+
+}
+
+.blown{
+
+    opacity:0;
+
+    transition:0.5s;
+}
+
+/* ==========================================
+   CANDLE
+========================================== */
+
+.candle{
+
+    animation:flicker .2s infinite alternate;
+
+}
+
+@keyframes flicker{
+
+    from{
+
+        filter:brightness(1);
+
+    }
+
+    to{
+
+        filter:brightness(1.6);
+
+    }
+
+}
+
+.blown{
+
+    opacity:.2;
+
+    transform:scale(.8);
+
+}
+
+/* ==========================================
+   GALLERY
+========================================== */
+
+.gallery-image{
+
+    transition:.5s;
+
+}
+
+.gallery-image:hover{
+
+    transform:
+    scale(1.05)
+    rotate(2deg);
+
+}
+
+/* ==========================================
+   PAGE ENTRY
+========================================== */
+
+.hero,
+.gift-wrapper,
+.birthday-content{
+
+    animation:slideUp 1s ease;
+
+}
+
+@keyframes slideUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(60px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+   GLOW EFFECT
+========================================== */
+
+.glow{
+
+    animation:glow 2s infinite alternate;
+
+}
+
+@keyframes glow{
+
+    from{
+
+        text-shadow:
+        0 0 10px #fff,
+        0 0 20px #ff4da6;
+
+    }
+
+    to{
+
+        text-shadow:
+        0 0 25px #fff,
+        0 0 45px #ff0080,
+        0 0 70px #ff4da6;
+
+    }
+
+}
