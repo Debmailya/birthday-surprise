@@ -7,6 +7,19 @@
     padding:0;
     box-sizing:border-box;
 }
+html,
+body{
+    width:100%;
+    overflow-x:hidden;
+    margin:0;
+    padding:0;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 html{
     scroll-behavior:smooth;
@@ -120,41 +133,41 @@ body{
 
 }
 
+
 .hero{
-
-    z-index:2;
-
-    padding:30px;
-
+    width:100%;
+    min-height:100vh;
+    padding:30px 15px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    box-sizing:border-box;
 }
 
 .hero h1{
-    font-size: clamp(2rem, 8vw, 4rem);
-    text-align:center;
-    margin:20px auto;
-    padding:0 15px;
+    width:100%;
+    font-size:clamp(2rem,10vw,4rem);
     line-height:1.2;
-    word-break:break-word;
+    text-align:center;
+    margin:10px 0;
+    padding:0 10px;
+    box-sizing:border-box;
+    word-wrap:break-word;
 }
 
 .title{
-
-    font-size:72px;
-
-    font-weight:800;
-
-    margin-bottom:20px;
-
+    font-size:clamp(2.2rem,8vw,4.5rem);
+    text-align:center;
+    line-height:1.2;
+    padding:0 15px;
 }
 
 .subtitle{
-
-    font-size:24px;
-
-    margin-bottom:40px;
-
-    color:#ffd9f2;
-
+    font-size:clamp(1rem,4vw,1.5rem);
+    padding:0 20px;
+    text-align:center;
 }
 
 /* ===========================
@@ -238,19 +251,13 @@ button:hover{
 =========================== */
 
 #birthdaySection{
-
     min-height:100vh;
-
     display:flex;
-
+    flex-direction:column;
     justify-content:center;
-
     align-items:center;
-
     text-align:center;
-
-    padding:40px;
-
+    padding:40px 20px;
 }
 
 .birthday-content h1{
@@ -359,23 +366,15 @@ button:hover{
 }
 
 .phone-frame{
-
     position:relative;
-
-    width:320px;
-    height:650px;
-
+    width:min(320px,90vw);
+    aspect-ratio:9/19;
     background:#111;
-
     border:12px solid #111;
-    border-radius:45px;
-
+    border-radius:40px;
     overflow:hidden;
-
-    box-shadow:
-    0 25px 60px rgba(0,0,0,.55),
-    inset 0 0 10px rgba(255,255,255,.08);
-
+    margin:30px auto;
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
 }
 
 .phone-notch{
@@ -463,15 +462,10 @@ footer{
 =========================== */
 
 .cake{
-
     position:relative;
-
-    width:220px;
-
+    width:min(220px,65vw);
     height:260px;
-
-    margin:auto;
-
+    margin:30px auto;
 }
 
 .plate{
@@ -755,4 +749,50 @@ footer{
     border-radius:40px;
     margin:20px auto;
     display:block;
+}
+ @media (max-width:768px){
+
+.title{
+font-size:2.5rem;
+}
+
+.subtitle{
+font-size:1.1rem;
+}
+
+.phone-frame{
+width:260px;
+}
+
+.cake{
+width:170px;
+height:200px;
+}
+
+#blowBtn{
+width:220px;
+font-size:18px;
+}
+
+}
+
+@media (max-width:480px){
+
+.title{
+font-size:2rem;
+}
+
+.subtitle{
+font-size:.95rem;
+}
+
+.phone-frame{
+width:220px;
+}
+
+.cake{
+width:150px;
+height:180px;
+}
+
 }
