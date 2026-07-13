@@ -12,7 +12,7 @@ const photos=[
 "/images/photo7.jpeg"
 
 ];
-
+ 
     let index = 0;
 
     gallery.innerHTML = `
