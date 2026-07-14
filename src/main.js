@@ -1,6 +1,7 @@
 import "./css/style.css";
 import "./css/animations.css";
 import "./css/responsive.css";
+import { initLetter } from "./js/letter.js";
 
 import { initGift } from "./js/gift.js";
 import { createBalloons } from "./js/balloons.js";
@@ -102,7 +103,7 @@ document.querySelector("#app").innerHTML = `
         <div id="gallery"></div>
        <section class="gallery-section">
 
-    <h2 class="gallery-title">📸 Our Beautiful Memories ❤️</h2>
+    <h2 class="gallery-title">📸 Beautiful Memories  of yours ❤️</h2>
 
     <div class="phone-frame">
 
@@ -114,23 +115,83 @@ document.querySelector("#app").innerHTML = `
             alt="Memory">
 
     </div>
+<div id="letterSection" class="hidden">
 
-</section>
+    <h2>❤️ One Last Surprise ❤️</h2>
+
+    <button id="openLetterBtn">
+        💌 Open My Love Letter
+    </button>
+
+</div>
+    </div>   <!-- birthdaySection ends -->
+
+<!-- LOVE LETTER POPUP -->
+<div id="specialPopup" class="popup-overlay hidden">
+
+    <div class="envelope">
+
+        <div class="envelope-back"></div>
+
+        <div class="envelope-flap"></div>
+
+        <div class="letter">
+
+            <button id="closePopup">✖</button>
+
+            <div class="love-photo">
+
+                <img
+                    src="/images/photo7.jpeg"
+                    alt="Munnu">
+
+            </div>
+
+            <h2>💌 To My Dearest Munnu 💌</h2>
+
+            <p class="love-text">
+                Happy Birthday, My Love ❤️
+
+                <br><br>
+                Today isn't just another day—
+                it's the day the world was blessed
+                with someone as wonderful as you.
+                <br><br>
+                Your smile brightens my darkest days,
+                your kindness inspires me,
+                and your presence makes every moment
+                feel a little more beautiful.
+                <br><br>
+                Thank you for being the amazing person
+                you are.
+                <br><br>
+                ✨ You are precious.
+                <br>
+                ✨ You are loved.
+                <br>
+                ✨ You will always be special to me.
+                <br><br>
+                Happy Birthday once again,
+                my beautiful Munnu. 🎂❤️
+                <br><br>
+                ❤️ Yours Forever ❤️
+            </p>
+
+
+        </div>
+
     </div>
 
 </div>
 
 
- <audio id="birthdayMusic" loop>
+<audio id="birthdayMusic" loop>
 
     <source
         src="/music/birthday.mp3"
         type="audio/mpeg">
 
-</audio>
-`;
-
-
+</audio>`;
 window.addEventListener("load", () => {
 
     setTimeout(() => {
@@ -146,8 +207,6 @@ window.addEventListener("load", () => {
     }, 2500);
 
 });
-
-
 
 const startBtn = document.getElementById("startBtn");
 
@@ -171,4 +230,35 @@ createLoveBubbles();
 initCake();
 initCandle();
 initGallery();
+initLetter();
 initMusic();
+
+
+const openLetterBtn = document.getElementById("openLetterBtn");
+
+if (openLetterBtn) {
+
+    openLetterBtn.addEventListener("click", () => {
+
+        // Hide the button
+        document
+            .getElementById("letterSection")
+            .classList.add("hidden");
+
+        // Show the love letter
+        document
+            .getElementById("loveLetterPage")
+            .classList.remove("hidden");
+
+        // Automatically close after 30 seconds
+        setTimeout(() => {
+
+            document
+                .getElementById("loveLetterPage")
+                .classList.add("hidden");
+
+        }, 30000);
+
+    });
+
+}

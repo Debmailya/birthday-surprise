@@ -21,12 +21,12 @@ export function initCandle() {
         // Fireworks
         startFireworks();
 
-        // Play celebration music if paused
+        // Play music
         if (birthdayMusic) {
             birthdayMusic.play().catch(() => {});
         }
 
-        // Birthday message
+        // Show birthday popup after 1 second
         setTimeout(() => {
 
             const message = document.createElement("div");
@@ -44,23 +44,34 @@ export function initCandle() {
                 </p>
             `;
 
+            // IMPORTANT
             document.body.appendChild(message);
 
+            // Show popup
             setTimeout(() => {
                 message.classList.add("show");
             }, 100);
 
+            // Hide popup after 5 seconds
+            setTimeout(() => {
+
+                message.classList.remove("show");
+
+                setTimeout(() => {
+
+                    message.remove();
+
+                    // Show Open Letter button
+                    document
+                        .getElementById("letterSection")
+                        ?.classList.remove("hidden");
+
+                }, 500);
+
+            }, 5000);
+
         }, 1000);
 
     });
-    blowBtn.addEventListener("click", () => {
-
-    const flame = document.getElementById("flame");
-
-    flame.classList.add("blown");
-
-    startFireworks();
-
-});
 
 }

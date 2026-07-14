@@ -796,3 +796,294 @@ height:180px;
 }
 
 }
+
+/* ======================================
+   FINAL LOVE LETTER ANIMATION
+====================================== */
+
+/* Overlay */
+
+.popup-overlay{
+
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(8px);
+
+    z-index:99999;
+
+    animation:fadeOverlay .8s ease forwards;
+
+}
+
+/* Envelope */
+
+.envelope{
+
+    position:relative;
+
+    width:380px;
+    max-width:90vw;
+
+    height:260px;
+
+    perspective:1200px;
+
+    animation:envelopeFly 1.5s ease forwards;
+
+}
+
+/* Envelope Body */
+
+.envelope-back{
+
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(135deg,#ff8abf,#ff4d94);
+
+    border-radius:15px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.4);
+
+}
+
+/* Envelope Flap */
+
+.envelope-flap{
+
+    position:absolute;
+
+    width:100%;
+    height:130px;
+
+    background:#ff6ea8;
+
+    clip-path:polygon(0 0,100% 0,50% 100%);
+
+    transform-origin:top;
+
+    animation:openFlap 1s ease forwards;
+
+    animation-delay:1.5s;
+
+}
+
+/* Letter */
+
+.letter{
+
+    position:absolute;
+
+    left:50%;
+    top:15px;
+
+    transform:translateX(-50%) translateY(120px);
+
+    width:92%;
+
+    background:#fffdf8;
+
+    color:#444;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+
+    opacity:0;
+
+    animation:pullLetter 1.2s ease forwards;
+
+    animation-delay:2.2s;
+
+}
+/* Love Letter */
+
+.letter{
+
+    width:90%;
+    max-width:700px;
+
+    height:80vh;
+    max-height:80vh;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    background:#fffdf8;
+
+    border-radius:30px;
+
+    padding:40px;
+
+    color:#444;
+
+    text-align:left;
+
+    line-height:1.9;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+
+    scroll-behavior:smooth;
+
+}
+
+/* Photo */
+
+.love-photo{
+
+    width:110px;
+    height:110px;
+
+    margin:0 auto 20px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    border:5px solid #ff4d94;
+
+    box-shadow:0 0 25px rgba(255,77,148,.5);
+
+}
+
+.love-photo img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+}
+
+/* Heading */
+
+.letter h2{
+
+    color:#ff4d94;
+
+    margin-bottom:15px;
+
+    font-size:30px;
+
+}
+
+/* Message */
+
+.love-text{
+
+    line-height:1.8;
+
+    font-size:18px;
+
+    margin-bottom:25px;
+
+}
+
+/* Button */
+
+#continueBtn{
+
+    background:#ff4d94;
+
+    color:#fff;
+
+    border:none;
+
+    padding:15px 35px;
+
+    border-radius:40px;
+
+    font-size:18px;
+
+}
+
+/* ===========================
+   ANIMATIONS
+=========================== */
+
+@keyframes fadeOverlay{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes envelopeFly{
+
+    0%{
+
+        transform:translateY(500px) scale(.2) rotate(-20deg);
+
+        opacity:0;
+
+    }
+
+    60%{
+
+        transform:translateY(-20px) scale(1.08) rotate(3deg);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:translateY(0) scale(1);
+
+    }
+
+}
+
+@keyframes openFlap{
+
+    from{
+
+        transform:rotateX(0deg);
+
+    }
+
+    to{
+
+        transform:rotateX(180deg);
+
+    }
+
+}
+
+@keyframes pullLetter{
+
+    0%{
+
+        transform:translateX(-50%) translateY(120px);
+
+        opacity:0;
+
+    }
+
+    100%{
+
+        transform:translateX(-50%) translateY(-40px);
+
+        opacity:1;
+
+    }
+
+}

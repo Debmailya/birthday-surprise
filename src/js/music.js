@@ -1,16 +1,27 @@
-export function initMusic() {
+export function initMusic(){
 
-    const music = document.getElementById("birthdayMusic");
+    const music = document.getElementById("bgMusic");
+    const button = document.getElementById("musicBtn");
 
-    const startBtn = document.getElementById("startBtn");
+    if(!music || !button) return;
 
-    if (!music || !startBtn) return;
+    let playing = false;
 
-    music.volume = 0.5;
+    button.addEventListener("click",()=>{
 
-    startBtn.addEventListener("click", () => {
+        if(playing){
 
-        music.play().catch(() => {});
+            music.pause();
+            button.innerHTML="🎵";
+
+        }else{
+
+            music.play();
+            button.innerHTML="⏸️";
+
+        }
+
+        playing=!playing;
 
     });
 
